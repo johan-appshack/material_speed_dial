@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'speed_dial_child.dart';
+
 import 'animated_children.dart';
 import 'animated_fab.dart';
 
 class SpeedDial extends StatefulWidget {
   final Widget? child, expandedChild;
-  final List<SpeedDialChild> children;
+  final List<Widget> children;
   final Color? backgroundColor,
       expandedBackgroundColor,
       foregroundColor,
@@ -83,7 +83,7 @@ class SpeedDialState extends State<SpeedDial>
     });
     _overlayEntry?.remove();
     _overlayEntry = _buildOverlay();
-    Overlay.of(context, rootOverlay: true)?.insert(_overlayEntry!);
+    Overlay.of(context, rootOverlay: true).insert(_overlayEntry!);
     _controller.animateTo(1);
   }
 

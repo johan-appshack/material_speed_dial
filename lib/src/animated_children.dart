@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'speed_dial_child.dart';
 
 class AnimatedChildren extends StatelessWidget {
   final Animation<double> animation;
-  final List<SpeedDialChild> children;
+  final List<Widget> children;
   final Future Function() close;
   final bool invokeAfterClosing;
 
@@ -29,7 +28,6 @@ class AnimatedChildren extends StatelessWidget {
 
             onPressed() async {
               invokeAfterClosing ? await close() : close();
-              speedDialChild.onPressed?.call();
             }
 
             return Padding(
@@ -39,24 +37,9 @@ class AnimatedChildren extends StatelessWidget {
                 onTap: onPressed,
                 child: Row(
                   children: [
-                    Opacity(
-                      opacity: curvedAnimation.value,
-                      child: Center(child: speedDialChild.label),
-                    ),
-                    const SizedBox(width: 16),
                     ScaleTransition(
                       scale: curvedAnimation,
-                      child: Container(
-                        width: 56,
-                        alignment: Alignment.center,
-                        child: FloatingActionButton(
-                          onPressed: onPressed,
-                          child: speedDialChild.child,
-                          foregroundColor: speedDialChild.foregroundColor,
-                          backgroundColor: speedDialChild.backgroundColor,
-                          mini: true,
-                        ),
-                      ),
+                      child: speedDialChild,
                     ),
                   ],
                 ),
