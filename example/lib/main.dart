@@ -1,46 +1,46 @@
-import 'package:flutter/material.dart';
-import 'package:material_speed_dial/material_speed_dial.dart';
+// import 'package:flutter/material.dart';
+// import 'package:material_speed_dial/material_speed_dial.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Demo',
-      home: MyHomePage(),
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Demo',
+//       home: MyHomePage(),
+//     );
+//   }
+// }
 
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Material Speed Dial Demo'),
-      ),
-      floatingActionButton: SpeedDial(
-        invokeAfterClosing: true,
-        child: Icon(Icons.add),
-        expandedChild: Icon(Icons.share),
-        backgroundColor: Colors.blue,
-        expandedBackgroundColor: Colors.black,
-        children: [
-          SpeedDialChild(
-            child: Icon(Icons.close),
-            label: Text('Test'),
-            onPressed: () {},
-          ),
-          SpeedDialChild(
-            child: Icon(Icons.pending),
-            label: Text('Another Test'),
-            onPressed: () {},
-          ),
-        ],
-      ),
-    );
-  }
-}
+// class MyHomePage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Material Speed Dial Demo'),
+//       ),
+//       floatingActionButton: SpeedDial(
+//         invokeAfterClosing: true,
+//         child: Icon(Icons.add),
+//         expandedChild: Icon(Icons.share),
+//         backgroundColor: Colors.blue,
+//         expandedBackgroundColor: Colors.black,
+//         children: [
+//           SpeedDialChild(
+//             child: Icon(Icons.close),
+//             label: Text('Test'),
+//             onPressed: () {},
+//           ),
+//           SpeedDialChild(
+//             child: Icon(Icons.pending),
+//             label: Text('Another Test'),
+//             onPressed: () {},
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

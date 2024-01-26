@@ -3,6 +3,18 @@ import 'package:flutter/material.dart';
 import 'animated_children.dart';
 import 'animated_fab.dart';
 
+class SpeedDialController {
+  final GlobalKey<SpeedDialState> _state = GlobalKey<SpeedDialState>();
+
+  bool get isOpen => _state.currentState?.isOpen ?? false;
+
+  toggle() => _state.currentState?.toggle();
+
+  close() => _state.currentState?._close();
+
+  open() => _state.currentState?._open();
+}
+
 class SpeedDial extends StatefulWidget {
   final Widget? child, expandedChild;
   final List<Widget> children;
@@ -17,8 +29,9 @@ class SpeedDial extends StatefulWidget {
   /// Enabling it will prevent SpeedDial from showing between navigation transitions
   /// or when SnackBar is being shown.
   final bool invokeAfterClosing;
+  final SpeedDialController? controller;
 
-  const SpeedDial({
+  SpeedDial({
     Key? key,
     this.child,
     this.expandedChild,
@@ -27,10 +40,11 @@ class SpeedDial extends StatefulWidget {
     this.foregroundColor,
     this.expandedForegroundColor,
     this.overlayColor,
+    this.controller,
     this.children = const [],
     this.invokeAfterClosing = false,
     this.animationDuration = const Duration(milliseconds: 300),
-  }) : super(key: key);
+  }) : super(key: controller?._state ?? key);
 
   @override
   SpeedDialState createState() => SpeedDialState();
