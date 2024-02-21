@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'animated_children.dart';
@@ -126,7 +127,9 @@ class SpeedDialState extends State<SpeedDial>
 
     double? left, right;
     if (Directionality.of(context) == TextDirection.ltr) {
-      right = MediaQuery.of(context).size.width - position.dx - box.size.width;
+      right = (kIsWeb ? 375 : MediaQuery.of(context).size.width) -
+          position.dx -
+          box.size.width;
     } else {
       left = position.dx;
     }
