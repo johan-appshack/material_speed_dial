@@ -127,11 +127,13 @@ class SpeedDialState extends State<SpeedDial>
 
     double? left, right;
     if (Directionality.of(context) == TextDirection.ltr) {
-      right = (kIsWeb ? 375 : MediaQuery.of(context).size.width) -
-          position.dx -
-          box.size.width;
+      right = MediaQuery.of(context).size.width - position.dx - box.size.width;
     } else {
       left = position.dx;
+    }
+
+    if (kIsWeb) {
+      right = 24;
     }
 
     return OverlayEntry(
